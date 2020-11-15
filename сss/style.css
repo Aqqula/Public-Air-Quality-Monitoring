@@ -1,0 +1,57 @@
+@font-face {
+	font-family: 'Century Gothic Regular';
+	src: url('../fonts/CenturyGothic.ttf') format('truetype');
+}
+h1{
+	font-family: 'Century Gothic Regular';
+	font-size: 5.4vh;
+	color: #008d46;
+}
+header{
+	/*border: 1px solid;*/
+	display: flex;
+	flex-direction: row;
+	padding: 0.9vh;
+	background: linear-gradient(160deg,#98d633,#0d7c3a);
+	opacity: 0.80;
+}
+.HederImg img{
+	/*border: 1px solid;*/
+	width: 208.5vh;
+	height: 16vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.FuterImg img{
+	width: 208.5vh;
+	height: 30vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.InfoBox{
+	/*border: 1px solid;*/
+	padding: 0.5vh
+}
+.InfoBox h3{
+	color: #006400;
+}
+.row.InfoBox p{
+	font-family:'Century Gothic Regular';
+	font-size: 2vh;
+}
+.BOX{
+	padding-top: 1vh;
+	border: 10px solid transparent;
+	border-radius: 40px 10px;
+	border-image: linear-gradient(to left, transparent 0%, #228B22 120%);
+	border-image-slice: 0.9;
+}
+.graff{
+	border-left: 2px ridge #228B22;
+	border-bottom: 2px ridge #228B22;
+	border-right: 2px ridge #228B22;
+	padding: 20vh;
+	padding-left: 90vh;
+}
