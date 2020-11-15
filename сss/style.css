@@ -17,14 +17,14 @@ header{
 }
 .HederImg img{
 	/*border: 1px solid;*/
-	width: 208.5vh;
+	width: 206vh;
 	height: 16vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 .FuterImg img{
-	width: 208.5vh;
+	width: 206vh;
 	height: 30vh;
 	display: flex;
 	justify-content: center;
@@ -32,7 +32,9 @@ header{
 }
 .InfoBox{
 	/*border: 1px solid;*/
-	padding: 0.5vh
+	padding: 0.5vh;
+	display: flex;
+	justify-content: space-between;
 }
 .InfoBox h3{
 	color: #006400;
@@ -42,6 +44,9 @@ header{
 	font-size: 2vh;
 }
 .BOX{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	padding-top: 1vh;
 	border: 10px solid transparent;
 	border-radius: 40px 10px;
@@ -49,9 +54,23 @@ header{
 	border-image-slice: 0.9;
 }
 .graff{
+	display: flex;
+	align-items: center;
 	border-left: 2px ridge #228B22;
 	border-bottom: 2px ridge #228B22;
 	border-right: 2px ridge #228B22;
 	padding: 20vh;
 	padding-left: 90vh;
+}
+.adding{
+	display: flex;
+	align-items: center;
+}
+.adding span{
+	font-family:'Century Gothic Regular';
+	font-size: 2.5vh;
+}
+select{
+	color: #228B22;
+	border-color: #228B22;
 }

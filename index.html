@@ -24,31 +24,44 @@
             <img src="img/HI.png" alt="img/hederImg.png">
         </div>
         <div class="container-fluid">
-            <div class="row InfoBox d-flex justify-content-between flex-fill mx-auto"> <!-- InfoBoxs -->
-                <div class="col-2 BOX d-flex flex-column align-items-center">
+            <div class="row InfoBox mx-auto"> <!-- InfoBoxs -->
+                <div class="col-2 BOX ">
                     <h3>0000</h3>
                     <p>Значення AQI</p>
                 </div>
-                <div class="col-2 BOX d-flex flex-column align-items-center">
+                <div class="col-2 BOX ">
                     <h3>0000</h3>
-                    <p>Значення PM10</p>
+                    <p>Значення PM10(мкг/м³)</p>
                 </div>
-                <div class="col-2 BOX d-flex flex-column align-items-center">
+                <div class="col-2 BOX ">
                     <h3>0000</h3>
-                    <p>Значення PM2.5</p>
+                    <p>Значення PM2.5(мкг/м³)</p>
                 </div>
-                <div class="col-2 BOX d-flex flex-column align-items-center">
+                <div class="col-2 BOX ">
                     <h3>0000</h3>
-                    <p>Температура повітря</p>
+                    <p>Температура повітря(°C)</p>
                 </div>
-                <div class="col-2 BOX d-flex flex-column align-items-center">
+                <div class="col-2 BOX ">
                     <h3>0000</h3>
-                    <p>Вологість повітря</p>
+                    <p>Вологість повітря(%)</p>
                 </div>
             </div>
             <br>
-            <div class="graff d-flex align-items-center">
+            <div class="graff">
                 <h1>Графік</h1>
+            </div>
+            <br>
+            <div class="row adding no-gutters">
+                <div class="col-6">
+                    <button type="button" class="btn btn-outline-success">Виберіть файл</button>  
+                    <span>Для роботи завантажте файли!</span> 
+                </div>
+                <div class="col-6 d-flex justify-content-around">
+                    <span>Дата -> </span>
+                    <select name="Data" id="Data"><option value="data">Data1EcoBot</option><option value="data">data2</option></select>
+                    <span>Час -> </span>
+                    <select name="Data" id="Data"><option value="data">Chas1EcoBot</option><option value="data">Chas2</option></select>
+                </div>
             </div>
         </div>
         <br>
