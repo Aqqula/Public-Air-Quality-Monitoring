@@ -18,11 +18,18 @@
   },
   "homepage": "https://github.com/Aqqula/Public-Air-Quality-Monitoring#readme",
   "devDependencies": {
+    "img-loader": "^3.0.2",
     "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "3.11.0"
   },
   "dependencies": {
+    "css-loader": "^5.0.1",
+    "file-loader": "^6.2.0",
+    "style-loader": "^2.0.0",
+    "url-loader": "^4.1.1",
+    "vue-loader": "^15.9.5",
+    "vue-template-compiler": "^2.6.12",
     "vue.js": "^0.3.2",
-    "webpack": "^5.4.0"
+    "webpack": "5.0.0"
   }
 }
