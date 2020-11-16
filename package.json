@@ -1,0 +1,28 @@
+{
+  "name": "public-air-quality-monitoring",
+  "version": "1.0.0",
+  "description": "CourseWork",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --mode development",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aqqula/Public-Air-Quality-Monitoring.git"
+  },
+  "author": "Mariya Batanova",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aqqula/Public-Air-Quality-Monitoring/issues"
+  },
+  "homepage": "https://github.com/Aqqula/Public-Air-Quality-Monitoring#readme",
+  "devDependencies": {
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "vue.js": "^0.3.2",
+    "webpack": "^5.4.0"
+  }
+}

@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SaveEcoBot Graphics</title>
-    <link rel="stylesheet" href="сss/bootstrap.css">
-    <link rel="stylesheet" href="сss/style.css">
-    <link rel="icon" href="img/Logo.ico" type="image/x-icon">
-</head>
-<body>
-    <header>  <!--HEDER-->
+<template>
+  <div>
+      <header>  <!--HEDER-->
         <div class="container-fluid">
             <div class="row no-gutters">
                 <div class="col-9 justify-content-end">
@@ -73,5 +64,99 @@
     <footer> <!--FOOTER-->
 
     </footer>
-</body>
-</html>
+  </div>
+</template>
+
+<script>
+import Vue from 'vue'
+export default {
+    data(){
+
+    },
+    methods:{
+
+    },
+    
+
+}
+</script>
+
+<style>
+@font-face {
+	font-family: 'Century Gothic Regular';
+	src: url('../fonts/CenturyGothic.ttf') format('truetype');
+}
+h1{
+	font-family: 'Century Gothic Regular';
+	font-size: 5.4vh;
+	color: #008d46;
+}
+header{
+	/*border: 1px solid;*/
+	display: flex;
+	flex-direction: row;
+	padding: 0.9vh;
+	background: linear-gradient(160deg,#98d633,#0d7c3a);
+	opacity: 0.80;
+}
+.HederImg img{
+	/*border: 1px solid;*/
+	width: 206vh;
+	height: 16vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.FuterImg img{
+	width: 206vh;
+	height: 30vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.InfoBox{
+	/*border: 1px solid;*/
+	padding: 0.5vh;
+	display: flex;
+	justify-content: space-between;
+}
+.InfoBox h3{
+	color: #006400;
+}
+.row.InfoBox p{
+	font-family:'Century Gothic Regular';
+	font-size: 2vh;
+}
+.BOX{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 1vh;
+	border: 10px solid transparent;
+	border-radius: 40px 10px;
+	border-image: linear-gradient(to left, transparent 0%, #228B22 120%);
+	border-image-slice: 0.9;
+}
+.graff{
+	display: flex;
+	align-items: center;
+	border-left: 2px ridge #228B22;
+	border-bottom: 2px ridge #228B22;
+	border-right: 2px ridge #228B22;
+	padding: 20vh;
+	padding-left: 90vh;
+}
+.adding{
+	display: flex;
+	align-items: center;
+	
+}
+.adding span{
+	font-family:'Century Gothic Regular';
+	font-size: 2.5vh;
+}
+select{
+	color: #228B22;
+	border-color: #228B22;
+}
+</style>

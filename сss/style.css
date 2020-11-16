@@ -65,6 +65,7 @@ header{
 .adding{
 	display: flex;
 	align-items: center;
+	
 }
 .adding span{
 	font-family:'Century Gothic Regular';
