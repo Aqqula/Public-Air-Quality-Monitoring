@@ -103,10 +103,10 @@ export default {
 </script>
 
 <style>
-/* @font-face {
+@font-face {
 	font-family: 'Century Gothic Regular';
-	src: url('../fonts/CenturyGothic.ttf') format('truetype');
-} */
+	src: url('../assets/fonts/CenturyGothic.ttf') format('truetype');
+}
 h1{
 	font-family: 'Century Gothic Regular';
 	font-size: 5.4vh;

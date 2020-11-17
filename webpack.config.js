@@ -24,10 +24,10 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [ 'style-loader', 'css-loader' ]
+        use: [ 'style-loader', 'css-loader' ],
       },
       {
-        test: /\.(png|jpe?g|gif)$/i,
+        test: /\.(png|jpe?g|gif|eot|svg|ttf|woff|woff2)$/i,
         use: [
           {
             loader: 'file-loader',
