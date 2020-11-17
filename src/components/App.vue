@@ -84,14 +84,12 @@ export default {
        this.arrayOfPM = this.arrayOfAqi.filter((el) => {
             return el.name == "PM10"
         });
-        // const sum = this.arrayOfPM.reduce((a, b) => {
-        //     a.data + b.data
-        // });
+        const sum = this.arrayOfPM.reduce( ( acc, x ) => acc + parseInt(x.data), 0)
 
-        var sum = 0;
-        for( var i = 0; i < this.arrayOfPM.length; i++ ){
-            sum += parseInt( this.arrayOfPM[i].data, 10 ); //don't forget to add the base
-        }
+        // var sum = 0;
+        // for( var i = 0; i < this.arrayOfPM.length; i++ ){
+        //     sum += parseInt( this.arrayOfPM[i].data, 10 ); //don't forget to add the base
+        // }
 
         const avg = sum / this.arrayOfPM.length;
         console.log(`The sum is: ${sum}. The average is: ${avg}.`);
