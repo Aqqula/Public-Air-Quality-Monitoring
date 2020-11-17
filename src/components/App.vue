@@ -21,8 +21,8 @@
                     <p>Значення AQI</p>
                 </div>
                 <div class="col-2 BOX ">
-                    <h3>0000</h3>
-                    <p>Значення PM10(мкг/м³)</p>
+                    <h3>{{avgPM | roundNum}} мкг/м³</h3>
+                    <p>Значення PM10</p>
                 </div>
                 <div class="col-2 BOX ">
                     <h3>0000</h3>
@@ -42,7 +42,7 @@
                 <h1>Графік</h1>
             </div>
             <br>
-            <div class="row adding no-gutters">
+            <!-- <div class="row adding no-gutters">
                 <div class="col-6">
                     <button type="button" class="btn btn-outline-success">Виберіть файл</button>  
                     <span>Для роботи завантажте файли!</span> 
@@ -53,11 +53,11 @@
                     <span>Час -> </span>
                     <select name="Data" id="Data"><option value="data">Chas1EcoBot</option><option value="data">Chas2</option></select>
                 </div>
-            </div>
+            </div> -->
         </div>
         <br>
         <div class="FuterImg"> <!-- HEDERIMG -->
-            <img src="img/FuterImg.png" alt="img/FuterImg.png">
+            <img src="../assets/img/FuterImg.png" alt="img/FuterImg.png">
         </div>
     </main>
 
@@ -75,29 +75,28 @@ export default {
     data() {
         return {
             arrayOfAqi : [],
-            arrayOfPM : [],
+            arrayOfPMTen : [],
+            avgPM: 0,
         }
     },
     mounted() {
         this.arrayOfAqi = AQI;
         console.log(this.arrayOfAqi);
-       this.arrayOfPM = this.arrayOfAqi.filter((el) => {
+
+        // PM10
+        this.arrayOfPMTen = this.arrayOfAqi.filter((el) => {
             return el.name == "PM10"
         });
-        const sum = this.arrayOfPM.reduce( ( acc, x ) => acc + parseInt(x.data), 0)
-
-        // var sum = 0;
-        // for( var i = 0; i < this.arrayOfPM.length; i++ ){
-        //     sum += parseInt( this.arrayOfPM[i].data, 10 ); //don't forget to add the base
-        // }
-
-        const avg = sum / this.arrayOfPM.length;
+        const sum = this.arrayOfPMTen.reduce( ( acc, x ) => acc + parseInt(x.data), 0)
+        const avg = sum / this.arrayOfPMTen.length;
         console.log(`The sum is: ${sum}. The average is: ${avg}.`);
+        this.avgPM = avg;
     },
-    methods:{
-
+    filters: { 
+        roundNum:  function(value) { 
+                return Math.round(value * 100) / 100 
+        }
     },
-    
 
 }
 </script>
@@ -122,7 +121,7 @@ header{
 }
 .HederImg img{
 	/*border: 1px solid;*/
-	width: 206vh;
+	width: 203.5vh;
 	height: 16vh;
 	display: flex;
 	justify-content: center;
