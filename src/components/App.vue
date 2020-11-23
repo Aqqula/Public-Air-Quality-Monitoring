@@ -16,30 +16,30 @@
         </div>
         <div class="container-fluid">
             <div class="row InfoBox mx-auto"> <!-- InfoBoxs -->
-                <div class="col-2 BOX ">
+                <div class="col-md-12 col-lg-2 BOX ">
                     <h3>0000</h3>
                     <p>Значення AQI</p>
                 </div>
-                <div class="col-2 BOX ">
+                <div class="col-md-6 col-lg-2 BOX ">
                     <h3>{{avgPM | roundNum}} мкг/м³</h3>
                     <p>Значення PM10</p>
                 </div>
-                <div class="col-2 BOX ">
+                <div class="col-md-6 col-lg-2 BOX ">
                     <h3>0000</h3>
                     <p>Значення PM2.5(мкг/м³)</p>
                 </div>
-                <div class="col-2 BOX ">
+                <div class="col-md-6 col-lg-2 BOX ">
                     <h3>0000</h3>
                     <p>Температура повітря(°C)</p>
                 </div>
-                <div class="col-2 BOX ">
+                <div class="col-md-6 col-lg-2 BOX ">
                     <h3>0000</h3>
                     <p>Вологість повітря(%)</p>
                 </div>
             </div>
             <br>
-            <div class="graff">
-                <h1>Графік</h1>
+            <div class="container-fluid graff">
+                <span>Графік</span>
             </div>
             <br>
             <!-- <div class="row adding no-gutters">
@@ -106,7 +106,7 @@ export default {
 	font-family: 'Century Gothic Regular';
 	src: url('../assets/fonts/CenturyGothic.ttf') format('truetype');
 }
-h1{
+.graff span{
 	font-family: 'Century Gothic Regular';
 	font-size: 5.4vh;
 	color: #008d46;
@@ -121,15 +121,15 @@ header{
 }
 .HederImg img{
 	/*border: 1px solid;*/
-	width: 203.5vh;
-	height: 16vh;
+	width: 100vw;
+	height: auto;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 .FuterImg img{
-	width: 206vh;
-	height: 30vh;
+	width: 100vw;
+	height: auto;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -158,13 +158,13 @@ header{
 	border-image-slice: 0.9;
 }
 .graff{
+    min-height: 40vh;
 	display: flex;
-	align-items: center;
+    align-items: center;
+    justify-content: center;
 	border-left: 2px ridge #228B22;
 	border-bottom: 2px ridge #228B22;
 	border-right: 2px ridge #228B22;
-	padding: 20vh;
-	padding-left: 90vh;
 }
 .adding{
 	display: flex;
