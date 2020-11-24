@@ -76,6 +76,7 @@ export default {
         return {
             arrayOfAqi : [],
             arrayOfPMTen : [],
+            arrayOfPMTwo : [],
             avgPM: 0,
         }
     },
@@ -85,12 +86,38 @@ export default {
 
         // PM10
         this.arrayOfPMTen = this.arrayOfAqi.filter((el) => {
-            return el.name == "PM10"
+            return el.name == "PM2.5"
         });
-        const sum = this.arrayOfPMTen.reduce( ( acc, x ) => acc + parseInt(x.data), 0)
-        const avg = sum / this.arrayOfPMTen.length;
-        console.log(`The sum is: ${sum}. The average is: ${avg}.`);
-        this.avgPM = avg;
+          // PM2.5
+        this.arrayOfPMTwo = this.arrayOfAqi.filter((el) => {
+            return el.name == "PM2.5"
+        });
+
+
+        var result = this.arrayOfPMTwo.reduce(function(h, obj) {
+        h[obj.date.slice(0, 7)] = (h[obj.date.slice(0, 7)] || []).concat(obj);
+        return h; 
+        }, {});
+        result = Object.keys(result).map(key => {
+        return {
+            date: key, 
+            responseBotAvg : result[key].reduce((a, b) => a + (parseInt(b.data) || 0), 0)/result[key].length,
+           }
+        });
+        console.log(result);
+
+
+
+        // this.arrayOfAQI = this.mergedArray.foreach((el) => {
+        //     i = el.max-
+        // });
+ 
+
+
+        // const sum = this.arrayOfPMTen.reduce( ( acc, x ) => acc + parseInt(x.data), 0)
+        // const avg = sum / this.arrayOfPMTen.length;
+        // console.log(`The sum is: ${sum}. The average is: ${avg}.`);
+        // this.avgPM = avg;
     },
     filters: { 
         roundNum:  function(value) { 

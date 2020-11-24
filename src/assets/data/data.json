@@ -23889,7 +23889,7 @@
 "name": "PM2.5",
 "measure": "ug/m3",
 "data": "2.05",
-"date": "9/22/19 13:54"
+"date": "9/23/19 13:54"
 },
 {
 "name": "Temperature",
@@ -23919,7 +23919,7 @@
 "name": "PM2.5",
 "measure": "ug/m3",
 "data": "1.7",
-"date": "9/22/19 13:55"
+"date": "9/23/19 13:55"
 },
 {
 "name": "Temperature",
@@ -23949,7 +23949,7 @@
 "name": "PM2.5",
 "measure": "ug/m3",
 "data": "1.8",
-"date": "9/22/19 13:56"
+"date": "9/23/19 13:56"
 },
 {
 "name": "Temperature",
@@ -23979,30 +23979,30 @@
 "name": "PM2.5",
 "measure": "ug/m3",
 "data": "1.5",
-"date": "9/22/19 13:57"
+"date": "9/23/19 13:57"
 },
 {
 "name": "Temperature",
 "measure": "C",
 "data": "17.5",
-"date": "9/22/19 13:57"
+"date": "9/23/19 13:57"
 },
 {
 "name": "Humidity",
 "measure": "%",
 "data": "74.5",
-"date": "9/22/19 13:57"
+"date": "9/23/19 13:57"
 },
 {
 "name": "WiFiSignal",
 "measure": "dB",
 "data": "-67",
-"date": "9/22/19 13:57"
+"date": "9/23/19 13:57"
 },
 {
 "name": "PM10",
 "measure": "ug/m3",
 "data": "4.15",
-"date": "9/22/19 13:58"
+"date": "9/23/19 13:58"
 }
 ]
