@@ -101,7 +101,7 @@ export default {
         result = Object.keys(result).map(key => {
         return {
             date: key, 
-            responseBotAvg : result[key].reduce((a, b) => a + (parseInt(b.data) || 0), 0)/result[key].length,
+            PMTwoAvg : result[key].reduce((a, b) => a + (parseInt(b.data) || 0), 0)/result[key].length,
            }
         });
         console.log(result);
