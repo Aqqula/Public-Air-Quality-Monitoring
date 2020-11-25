@@ -77,7 +77,11 @@ export default {
             arrayOfAqi : [],
             arrayOfPMTen : [],
             arrayOfPMTwo : [],
+            arrayOfTemperature : [],
+            arrayOfHumidity : [],
             avgPM: 0,
+            DataOfAqi: 0,
+
         }
     },
     mounted() {
@@ -86,11 +90,19 @@ export default {
 
         // PM10
         this.arrayOfPMTen = this.arrayOfAqi.filter((el) => {
-            return el.name == "PM2.5"
+            return el.name == "PM10"
         });
           // PM2.5
         this.arrayOfPMTwo = this.arrayOfAqi.filter((el) => {
             return el.name == "PM2.5"
+        });
+        // Temperature
+        this.arrayOfTemperature = this.arrayOfAqi.filter((el) => {
+            return el.name == "Temperature"
+        });
+        // Humidity
+        this.arrayOfHumidity = this.arrayOfAqi.filter((el) => {
+            return el.name == "Humidity"
         });
 
 
@@ -106,11 +118,38 @@ export default {
         });
         console.log(result);
 
+        //Good (0.0-12.0): Clow=0, Chight=12.0, Ilow=0, Ihight=50; - 
+        //Moderate (12.1-35.4): Clow=12.1, Chight=35.4, Ilow=51, Ihight=100; + 
+        //Unhealthy for Sensitive group (35.5-55.4): Clow=35.5, Chight=55.4, Ilow=101, Ihight=150; +
+        //Unhealthy (55.5-150.4): Clow=55.5, Chight=150.4, Ilow=151, Ihight=200; +
+        //Very Unhealthy (150.5-250.4): Clow=150.5, Chight=250.4, Ilow=201, Ihight=300; +
+        //Hazardous (250.5-350.4): Clow=250.5, Chight=350.4, Ilow=301, Ihight=400; +
+        //Very Hazardous (350.5-500.4): Clow=350.5, Chight=500.4, Ilow=401, Ihight=500;
 
+        // i = el.max- 
+        this.arrayOfAQI = this.result.forEach((el) => {
+            if ((el.PMTwoAvg > 0) && (el.PMTwoAvg < 12.0))
+                el.DataOfAqi = (el.PMTwoAvg-0)/(12.0-0)*(50-0)+0;
 
-        // this.arrayOfAQI = this.mergedArray.foreach((el) => {
-        //     i = el.max-
-        // });
+            else if ((el.PMTwoAvg > 12.1) && (el.PMTwoAvg < 35.4))
+                el.DataOfAqi = (el.PMTwoAvg-12.1)/(35.4-12.1)*(100-51)+51;
+
+            // else if ((PMTwoAvg > 35.5) && (PMTwoAvg < 55.4))
+            //     this.DataOfAqi = (PMTwoAvg-35.5)/(55.4-35.5)*(150-101)+101;
+            
+            // else if ((PMTwoAvg > 55.5) && (PMTwoAvg < 150.4))
+            //     this.DataOfAqi = (PMTwoAvg-55.5)/(150.4-55.5)*(200-151)+151;
+
+            // else if ((PMTwoAvg > 150.5) && (PMTwoAvg < 250.4))
+            //     this.DataOfAqi = (PMTwoAvg-150.5)/(250.4-150.5)*(300-201)+201;
+
+            // else if ((PMTwoAvg > 250.5) && (PMTwoAvg < 350.4))
+            //     this.DataOfAqi = (PMTwoAvg-250.5)/(350.4-250.5)*(400-301)+301;
+
+            // else if ((PMTwoAvg > 350.5) && (PMTwoAvg < 500.4))
+            //     this.DataOfAqi = (PMTwoAvg-350.5)/(500.4-350.5)*(500-401)+401;       
+        });
+        // console.log(this.arrayOfAQI);  
  
 
 
