@@ -71,6 +71,7 @@
 import Vue from 'vue'
 import AQI from '../assets/data/data.json'
 
+
 export default {
     data() {
         return {
@@ -126,30 +127,29 @@ export default {
         //Hazardous (250.5-350.4): Clow=250.5, Chight=350.4, Ilow=301, Ihight=400; +
         //Very Hazardous (350.5-500.4): Clow=350.5, Chight=500.4, Ilow=401, Ihight=500;
 
-        // i = el.max- 
-        this.arrayOfAQI = this.result.forEach((el) => {
+        result.forEach((el) => {
             if ((el.PMTwoAvg > 0) && (el.PMTwoAvg < 12.0))
                 el.DataOfAqi = (el.PMTwoAvg-0)/(12.0-0)*(50-0)+0;
 
             else if ((el.PMTwoAvg > 12.1) && (el.PMTwoAvg < 35.4))
                 el.DataOfAqi = (el.PMTwoAvg-12.1)/(35.4-12.1)*(100-51)+51;
 
-            // else if ((PMTwoAvg > 35.5) && (PMTwoAvg < 55.4))
-            //     this.DataOfAqi = (PMTwoAvg-35.5)/(55.4-35.5)*(150-101)+101;
+            else if ((el.PMTwoAvg > 35.5) && (el.PMTwoAvg < 55.4))
+                el.DataOfAqi = (el.PMTwoAvg-35.5)/(55.4-35.5)*(150-101)+101;
             
-            // else if ((PMTwoAvg > 55.5) && (PMTwoAvg < 150.4))
-            //     this.DataOfAqi = (PMTwoAvg-55.5)/(150.4-55.5)*(200-151)+151;
+            else if ((el.PMTwoAvg > 55.5) && (el.PMTwoAvg < 150.4))
+                el.DataOfAqi = (el.PMTwoAvg-55.5)/(150.4-55.5)*(200-151)+151;
 
-            // else if ((PMTwoAvg > 150.5) && (PMTwoAvg < 250.4))
-            //     this.DataOfAqi = (PMTwoAvg-150.5)/(250.4-150.5)*(300-201)+201;
+            else if ((el.PMTwoAvg > 150.5) && (el.PMTwoAvg < 250.4))
+                el.DataOfAqi = (el.PMTwoAvg-150.5)/(250.4-150.5)*(300-201)+201;
 
-            // else if ((PMTwoAvg > 250.5) && (PMTwoAvg < 350.4))
-            //     this.DataOfAqi = (PMTwoAvg-250.5)/(350.4-250.5)*(400-301)+301;
+            else if ((el.PMTwoAvg > 250.5) && (el.PMTwoAvg < 350.4))
+                el.DataOfAqi = (el.PMTwoAvg-250.5)/(350.4-250.5)*(400-301)+301;
 
-            // else if ((PMTwoAvg > 350.5) && (PMTwoAvg < 500.4))
-            //     this.DataOfAqi = (PMTwoAvg-350.5)/(500.4-350.5)*(500-401)+401;       
+            else if ((el.PMTwoAvg > 350.5) && (el.PMTwoAvg < 500.4))
+                el.DataOfAqi = (el.PMTwoAvg-350.5)/(500.4-350.5)*(500-401)+401;       
         });
-        // console.log(this.arrayOfAQI);  
+        this.arrayOfAqi = result;
  
 
 
