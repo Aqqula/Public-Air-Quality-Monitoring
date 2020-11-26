@@ -162,7 +162,7 @@ export default {
             return el.name == "Humidity"
         });
 
-
+        //Перебыраємо масив з ПМ2.5 за датою
         var result = this.arrayOfPMTwo.reduce(function(h, obj) {
         h[obj.date.slice(0, 7)] = (h[obj.date.slice(0, 7)] || []).concat(obj);
         return h; 
@@ -175,14 +175,7 @@ export default {
         });
        
 
-        //Good (0.0-12.0): Clow=0, Chight=12.0, Ilow=0, Ihight=50; - 
-        //Moderate (12.1-35.4): Clow=12.1, Chight=35.4, Ilow=51, Ihight=100; + 
-        //Unhealthy for Sensitive group (35.5-55.4): Clow=35.5, Chight=55.4, Ilow=101, Ihight=150; +
-        //Unhealthy (55.5-150.4): Clow=55.5, Chight=150.4, Ilow=151, Ihight=200; +
-        //Very Unhealthy (150.5-250.4): Clow=150.5, Chight=250.4, Ilow=201, Ihight=300; +
-        //Hazardous (250.5-350.4): Clow=250.5, Chight=350.4, Ilow=301, Ihight=400; +
-        //Very Hazardous (350.5-500.4): Clow=350.5, Chight=500.4, Ilow=401, Ihight=500;
-
+        //формула
         result.forEach((el) => {
             if ((el.PMTwoAvg > 0) && (el.PMTwoAvg < 12.0))
                 el.DataOfAqi = (el.PMTwoAvg-0)/(12.0-0)*(50-0)+0;
@@ -221,10 +214,6 @@ export default {
  
 
 
-        // const sum = this.arrayOfPMTen.reduce( ( acc, x ) => acc + parseInt(x.data), 0)
-        // const avg = sum / this.arrayOfPMTen.length;
-        // console.log(`The sum is: ${sum}. The average is: ${avg}.`);
-        // this.avgPM = avg;
     },
     filters: { 
         roundNum:  function(value) { 
