@@ -40,6 +40,7 @@
             <br>
             <div class="container-fluid graff">
                 <span>Графік</span>
+                <vue-chart type="bar" :data="chartData"></vue-chart>
             </div>
             <br>
             <!-- <div class="row adding no-gutters">
@@ -120,6 +121,7 @@
 <script>
 import Vue from 'vue'
 import AQI from '../assets/data/data.json'
+import VueChart from 'vue-chart-js'
 
 
 export default {
@@ -132,8 +134,31 @@ export default {
             arrayOfHumidity : [],
             avgPM: 0,
             DataOfAqi: 0,
-
+            chartData: {
+                labels: [],
+                datasets: [
+                    {
+                        label: 'Component 1',
+                        data: [10, 20, 30],
+                        backgroundColor: [
+                            'red',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                    },
+                    // {
+                    //     label: 'Component 2',
+                    //     data: [20, 30, 40]
+                    // }
+                ]
+            }
         }
+    },
+    components: {
+        VueChart
     },
     mounted() {
         this.arrayOfAqi = AQI;
@@ -167,7 +192,7 @@ export default {
             PMTwoAvg : result[key].reduce((a, b) => a + (parseInt(b.data) || 0), 0)/result[key].length,
            }
         });
-        console.log(result);
+       
 
         //Good (0.0-12.0): Clow=0, Chight=12.0, Ilow=0, Ihight=50; - 
         //Moderate (12.1-35.4): Clow=12.1, Chight=35.4, Ilow=51, Ihight=100; + 
@@ -200,6 +225,18 @@ export default {
                 el.DataOfAqi = (el.PMTwoAvg-350.5)/(500.4-350.5)*(500-401)+401;       
         });
         this.arrayOfAqi = result;
+    
+        //bar chart AQI
+        let dataOfChart = [];
+        let labelsOfChart = [];
+        result.forEach(el => {
+            dataOfChart.push(el.DataOfAqi);
+            labelsOfChart.push(el.date);
+        });
+        this.chartData.labels = labelsOfChart;
+        this.chartData.datasets[0].label = "AQI";
+         this.chartData.datasets[0].data = dataOfChart;
+       // ({"label": "AQI", "data": dataOfChart});
  
 
 
