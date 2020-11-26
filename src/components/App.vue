@@ -173,9 +173,23 @@ export default {
             PMTwoAvg : result[key].reduce((a, b) => a + (parseInt(b.data) || 0), 0)/result[key].length,
            }
         });
-       
+        console.log(result);
 
-        //формула
+        //Перебыраємо масив з ПМ10 за датою
+        var resultOfPMTen = this.arrayOfPMTen.reduce(function(h, obj) {
+        h[obj.date.slice(0, 7)] = (h[obj.date.slice(0, 7)] || []).concat(obj);
+        return h; 
+        }, {});
+        resultOfPMTen = Object.keys(resultOfPMTen).map(key => {
+        return {
+            date: key, 
+            PMTenAvg : resultOfPMTen[key].reduce((a, b) => a + (parseInt(b.data) || 0), 0)/resultOfPMTen[key].length,
+           }
+        });
+       console.log(resultOfPMTen);
+
+
+        //формула для АКЮ
         result.forEach((el) => {
             if ((el.PMTwoAvg > 0) && (el.PMTwoAvg < 12.0))
                 el.DataOfAqi = (el.PMTwoAvg-0)/(12.0-0)*(50-0)+0;
@@ -209,10 +223,19 @@ export default {
         });
         this.chartData.labels = labelsOfChart;
         this.chartData.datasets[0].label = "AQI";
-         this.chartData.datasets[0].data = dataOfChart;
+        this.chartData.datasets[0].data = dataOfChart;
        // ({"label": "AQI", "data": dataOfChart});
  
-
+        //bar chart PM10
+        let dataOfChartPM = [];
+        let labelsOfChartPM = [];
+        resultOfPMTen.forEach(el => {
+            dataOfChartPM.push(el.PMTenAvg);
+            labelsOfChartPM.push(el.date);
+        });
+        this.chartData.labels = labelsOfChartPM;
+        this.chartData.datasets[1].label = "PM10";
+        this.chartData.datasets[1].data = dataOfChartPM;
 
     },
     filters: { 
