@@ -122,18 +122,30 @@ export default {
             chartData: {
                 labels: [],
                 datasets: [
-                    {
-                        label: 'Component 1',
-                        data: [10, 20, 30],
-                        backgroundColor: [
-                            'red',
-                            'rgba(205, 92, 92)',
-                            'rgba(255, 182, 193)',
-                            'rgba(216, 191, 216)',
-                            'rgba(176, 196, 222)',
-                            'rgba(144, 238, 144)'
-                        ],
-                    }
+                    // {
+                    //     label: 'Component 1',
+                    //     data: [10, 20, 30],
+                    //     backgroundColor: [
+                    //         'red',
+                    //         'rgba(205, 92, 92)',
+                    //         'rgba(255, 182, 193)',
+                    //         'rgba(216, 191, 216)',
+                    //         'rgba(176, 196, 222)',
+                    //         'rgba(144, 238, 144)'
+                    //     ],
+                    // },
+                    //  {
+                    //     label: 'Component 1',
+                    //     data: [10, 20, 30],
+                    //     backgroundColor: [
+                    //         'red',
+                    //         'rgba(205, 92, 92)',
+                    //         'rgba(255, 182, 193)',
+                    //         'rgba(216, 191, 216)',
+                    //         'rgba(176, 196, 222)',
+                    //         'rgba(144, 238, 144)'
+                    //     ],
+                    // }
                 ]
             }
         }
@@ -216,23 +228,42 @@ export default {
     
         //bar chart AQI
         let dataOfChart = [];
+        let colorsOfChart = [];
         let labelsOfChart = [];
+        let color = '';
         result.forEach(el => {
             dataOfChart.push(el.DataOfAqi);
+            if (el.DataOfAqi < 50) {
+                color = 'green'; 
+            } 
+            else if (el.DataOfAqi < 100) {
+                color = 'yellow'; 
+            }
+            else if (el.DataOfAqi < 150) {
+                color = 'orange'; 
+            }
+            else if (el.DataOfAqi < 200) {
+                color = 'pink'; 
+            }
+            else if (el.DataOfAqi < 300) {
+                color = 'green'; 
+            }
+            else {
+                color = 'green'; 
+            }
+            colorsOfChart.push(color)
             labelsOfChart.push(el.date);
         });
         this.chartData.labels = labelsOfChart;
-        this.chartData.datasets[0].label = "AQI";
-        this.chartData.datasets[0].data = dataOfChart;
-       // ({"label": "AQI", "data": dataOfChart});
+        this.chartData.datasets.push({"label": "AQI", "data": dataOfChart, "backgroundColor": colorsOfChart});
  
         //bar chart PM10
         let dataOfChartPM = [];
         resultOfPMTen.forEach(el => {
             dataOfChartPM.push(el.PMTenAvg);
         });
-        this.chartData.datasets[0].label = "PM10";
-        this.chartData.datasets[0].data = dataOfChartPM;
+        this.chartData.datasets.push({"label": "PM10", "data": dataOfChartPM});
+ 
 
     },
     filters: { 
