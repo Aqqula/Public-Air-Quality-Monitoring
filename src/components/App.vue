@@ -39,22 +39,9 @@
             </div>
             <br>
             <div class="container-fluid graff">
-                <span>Графік</span>
                 <vue-chart type="bar" :data="chartData"></vue-chart>
             </div>
             <br>
-            <!-- <div class="row adding no-gutters">
-                <div class="col-6">
-                    <button type="button" class="btn btn-outline-success">Виберіть файл</button>  
-                    <span>Для роботи завантажте файли!</span> 
-                </div>
-                <div class="col-6 d-flex justify-content-around">
-                    <span>Дата -> </span>
-                    <select name="Data" id="Data"><option value="data">Data1EcoBot</option><option value="data">data2</option></select>
-                    <span>Час -> </span>
-                    <select name="Data" id="Data"><option value="data">Chas1EcoBot</option><option value="data">Chas2</option></select>
-                </div>
-            </div> -->
             <br>
                 <table class="table table-sm">
                     <thead>
@@ -112,9 +99,7 @@
         </div>
     </main>
 
-    <footer> <!--FOOTER-->
-
-    </footer>
+    <footer><!--FOOTER--></footer>
   </div>
 </template>
 
@@ -142,17 +127,13 @@ export default {
                         data: [10, 20, 30],
                         backgroundColor: [
                             'red',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)'
+                            'rgba(205, 92, 92)',
+                            'rgba(255, 182, 193)',
+                            'rgba(216, 191, 216)',
+                            'rgba(176, 196, 222)',
+                            'rgba(144, 238, 144)'
                         ],
-                    },
-                    // {
-                    //     label: 'Component 2',
-                    //     data: [20, 30, 40]
-                    // }
+                    }
                 ]
             }
         }
