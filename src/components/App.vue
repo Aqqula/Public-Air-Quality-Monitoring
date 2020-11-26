@@ -228,14 +228,11 @@ export default {
  
         //bar chart PM10
         let dataOfChartPM = [];
-        let labelsOfChartPM = [];
         resultOfPMTen.forEach(el => {
             dataOfChartPM.push(el.PMTenAvg);
-            labelsOfChartPM.push(el.date);
         });
-        this.chartData.labels = labelsOfChartPM;
-        this.chartData.datasets[1].label = "PM10";
-        this.chartData.datasets[1].data = dataOfChartPM;
+        this.chartData.datasets[0].label = "PM10";
+        this.chartData.datasets[0].data = dataOfChartPM;
 
     },
     filters: { 
