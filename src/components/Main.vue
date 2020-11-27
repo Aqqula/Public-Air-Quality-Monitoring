@@ -2,13 +2,12 @@
   <div>
       <header>  <!--HEDER-->
         <div class="container-fluid">
-            <div class="row no-gutters">
-                <div class="col-8 justify-content-end">
+            <div class="row InfoDet no-gutters">
+                <div class="col-8">
                    <img src="../assets/img/Logo.png" alt="Logo" width="280" height="39">
-                </div>
-                <div class="col-4 justify-content-end">
-                    <!-- <p>Продивитися додаткову інформацію</p> -->
-                    <router-link to="/saveecobot-info" tag="button">Продивитися додаткову інформацію</router-link>
+                </div>          
+                <div class="col-4">
+                    <button type="button" class="btn btn-success"><router-link to="/saveecobot-info">Продивитися додаткову інформацію</router-link></button>
                 </div>
             </div>
         </div>
@@ -43,7 +42,7 @@
             </div>
             <br>
             <div class="container-fluid graff">
-                <vue-chart type="bar" :data="chartData"></vue-chart>
+                <vue-chart type="horizontalBar" :data="chartData"></vue-chart>
             </div>
             <br>
             <br>
@@ -433,4 +432,16 @@ select{
 table{
     border: 2px solid #228B22;
 }
+a{
+    color: white;
+}
+a:hover{
+    color:#006400;
+}
+.InfoDet{
+    display: flex;
+	justify-content: space-between;
+    border: 1px solid black;
+}
+
 </style>

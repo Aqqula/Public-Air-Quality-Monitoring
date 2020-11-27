@@ -3,8 +3,11 @@
       <header>  <!--HEDER-->
         <div class="container-fluid">
             <div class="row no-gutters">
-                <div class="col-9 justify-content-end">
+                 <div class="col-8">
                    <img src="../assets/img/Logo.png" alt="Logo" width="280" height="39">
+                </div>          
+                <div class="col-4">
+                    <button type="button" class="btn btn-success"><router-link to="/saveecobot-info">Продивитися додаткову інформацію</router-link></button>
                 </div>
             </div>
         </div>
@@ -17,7 +20,7 @@
         <div class="container-fluid">
             <br>
             <div class="container-fluid graff">
-                <vue-chart type="bar" :data="chartData"></vue-chart>
+                <vue-chart type="line" :data="chartData"></vue-chart>
             </div>
             <br>
         </div>
@@ -153,23 +156,37 @@ export default {
         });
         console.log(resultOfHum);
     
-        //bar chart AQI
+        //bar chart PM2.5
         let dataOfChartPM25 = [];
         let labelsOfChart = [];
         result.forEach(el => {
             dataOfChartPM25.push(el.PMTwoAvg);
             labelsOfChart.push(el.date);
         });
+        this.chartData.datasets.push({"label": "PM2.5", backgroundColor: 'transparent',"data": dataOfChartPM25, "fill": false, borderColor:'#DB7093'});
         this.chartData.labels = labelsOfChart;
-        this.chartData.datasets.push({"label": "PM2.5", "data": dataOfChartPM25, "backgroundColor": colorsOfChart});
- 
-        //bar chart PM10
-        // let dataOfChartPM = [];
-        // resultOfPMTen.forEach(el => {
-        //     dataOfChartPM.push(el.PMTenAvg);
-        // });
-        // this.chartData.datasets.push({"label": "PM10", "data": dataOfChartPM});
+
+        // //bar chart PM10
+        let dataOfChartPM10 = [];
+        resultOfPMTen.forEach(el => {
+            dataOfChartPM10.push(el.PMTenAvg);
+        });
+        this.chartData.datasets.push({"label": "PM10", backgroundColor: 'transparent',"data": dataOfChartPM10, "fill": false, borderColor:'#FFA07A'});
         
+        // //bar chart Temp
+        let dataOfChartTemp = [];
+        resultOfTemp.forEach(el => {
+            dataOfChartTemp.push(el.TempAvg);
+        });
+        this.chartData.datasets.push({"label": "Temperature", backgroundColor: 'transparent',"data": dataOfChartTemp, "fill": false, borderColor:'#20B2AA'});
+
+        // //bar chart Hum
+        let dataOfChartHum = [];
+        resultOfHum.forEach(el => {
+            dataOfChartHum.push(el.HumAvg);
+        });
+        this.chartData.datasets.push({"label": "Humidity", backgroundColor: 'transparent',"data": dataOfChartHum, "fill": false, borderColor:'#4682B4'});
+
     },
 }
 </script>
