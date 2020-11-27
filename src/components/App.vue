@@ -3,8 +3,12 @@
       <header>  <!--HEDER-->
         <div class="container-fluid">
             <div class="row no-gutters">
-                <div class="col-9 justify-content-end">
+                <div class="col-8 justify-content-end">
                    <img src="../assets/img/Logo.png" alt="Logo" width="280" height="39">
+                </div>
+                <div class="col-4 justify-content-end">
+                    <!-- <p>Продивитися додаткову інформацію</p> -->
+                    <router-link :to="'/SaveEcoBot-Info'"><button>Продивитися додаткову інформацію</button></router-link>
                 </div>
             </div>
         </div>
@@ -105,6 +109,7 @@
 
 <script>
 import Vue from 'vue'
+import VueRouter from 'vue-router'
 import AQI from '../assets/data/data.json'
 import VueChart from 'vue-chart-js'
 
