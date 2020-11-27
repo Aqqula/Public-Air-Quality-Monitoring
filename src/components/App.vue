@@ -17,23 +17,23 @@
         <div class="container-fluid">
             <div class="row InfoBox mx-auto"> <!-- InfoBoxs -->
                 <div class="col-md-12 col-lg-2 BOX ">
-                    <h3>0000</h3>
+                    <h3>{{boxAQI | roundNum}}</h3>
                     <p>Значення AQI</p>
                 </div>
                 <div class="col-md-6 col-lg-2 BOX ">
-                    <h3>{{avgPM | roundNum}} мкг/м³</h3>
+                    <h3>{{boxPM25 | roundNum}} мкг/м³</h3>
                     <p>Значення PM10</p>
                 </div>
                 <div class="col-md-6 col-lg-2 BOX ">
-                    <h3>0 мкг/м³</h3>
+                    <h3>{{boxPM10 | roundNum}} мкг/м³</h3>
                     <p>Значення PM2.5</p>
                 </div>
                 <div class="col-md-6 col-lg-2 BOX ">
-                    <h3>0 °C</h3>
+                    <h3>{{boxTemp | roundNum}} °C</h3>
                     <p>Температура повітря</p>
                 </div>
                 <div class="col-md-6 col-lg-2 BOX ">
-                    <h3>0 %</h3>
+                    <h3>{{boxHum | roundNum}} %</h3>
                     <p>Вологість повітря</p>
                 </div>
             </div>
@@ -57,7 +57,7 @@
                             <th scope="row">0 - 50</th>
                             <td>Добрий</td>
                             <td>Якість повітря вважається задовільною, а забруднення повітря становить невеликий ризик або взагалі не становить його.</td>
-                            <td>Жоденого</td>
+                            <td>Жодного</td>
                         </tr>
                         <tr class="yellow"> 
                             <th scope="row">51 -100</th>
@@ -117,7 +117,11 @@ export default {
             arrayOfPMTwo : [],
             arrayOfTemperature : [],
             arrayOfHumidity : [],
-            avgPM: 0,
+            boxAQI: 0,
+            boxPM25: 0,
+            boxPM10: 0,
+            boxTemp:0,
+            boxHum: 0,
             DataOfAqi: 0,
             chartData: {
                 labels: [],
@@ -166,11 +170,11 @@ export default {
             return el.name == "PM2.5"
         });
         // Temperature
-        this.arrayOfTemperature = this.arrayOfAqi.filter((el) => {
+        this.arrayOfTemp = this.arrayOfAqi.filter((el) => {
             return el.name == "Temperature"
         });
         // Humidity
-        this.arrayOfHumidity = this.arrayOfAqi.filter((el) => {
+        this.arrayOfHum = this.arrayOfAqi.filter((el) => {
             return el.name == "Humidity"
         });
 
@@ -198,7 +202,33 @@ export default {
             PMTenAvg : resultOfPMTen[key].reduce((a, b) => a + (parseInt(b.data) || 0), 0)/resultOfPMTen[key].length,
            }
         });
-       console.log(resultOfPMTen);
+        console.log(resultOfPMTen);
+
+        //Перебыраємо масив з Temperature за датою
+        var resultOfTemp = this.arrayOfTemp.reduce(function(h, obj) {
+        h[obj.date.slice(0, 7)] = (h[obj.date.slice(0, 7)] || []).concat(obj);
+        return h; 
+        }, {});
+        resultOfTemp = Object.keys(resultOfTemp).map(key => {
+        return {
+            date: key, 
+            TempAvg : resultOfTemp[key].reduce((a, b) => a + (parseInt(b.data) || 0), 0)/resultOfTemp[key].length,
+           }
+        });
+        console.log(resultOfTemp);
+
+        //Перебыраємо масив з Humidity за датою
+        var resultOfHum = this.arrayOfHum.reduce(function(h, obj) {
+        h[obj.date.slice(0, 7)] = (h[obj.date.slice(0, 7)] || []).concat(obj);
+        return h; 
+        }, {});
+        resultOfHum = Object.keys(resultOfHum).map(key => {
+        return {
+            date: key, 
+            HumAvg : resultOfHum[key].reduce((a, b) => a + (parseInt(b.data) || 0), 0)/resultOfHum[key].length,
+           }
+        });
+        console.log(resultOfHum);
 
 
         //формула для АКЮ
@@ -234,19 +264,19 @@ export default {
         result.forEach(el => {
             dataOfChart.push(el.DataOfAqi);
             if (el.DataOfAqi < 50) {
-                color = 'green'; 
+                color = '#66aa00e0'; 
             } 
             else if (el.DataOfAqi < 100) {
-                color = 'yellow'; 
+                color = 'rgba(255, 247, 0, 0.59)'; 
             }
             else if (el.DataOfAqi < 150) {
-                color = 'orange'; 
+                color = 'rgba(255, 166, 0, 0.611)'; 
             }
             else if (el.DataOfAqi < 200) {
-                color = 'pink'; 
+                color = '#ff00008e'; 
             }
             else if (el.DataOfAqi < 300) {
-                color = 'green'; 
+                color = 'rgba(128, 0, 128, 0.761)'; 
             }
             else {
                 color = 'green'; 
@@ -258,12 +288,18 @@ export default {
         this.chartData.datasets.push({"label": "AQI", "data": dataOfChart, "backgroundColor": colorsOfChart});
  
         //bar chart PM10
-        let dataOfChartPM = [];
-        resultOfPMTen.forEach(el => {
-            dataOfChartPM.push(el.PMTenAvg);
-        });
-        this.chartData.datasets.push({"label": "PM10", "data": dataOfChartPM});
- 
+        // let dataOfChartPM = [];
+        // resultOfPMTen.forEach(el => {
+        //     dataOfChartPM.push(el.PMTenAvg);
+        // });
+        // this.chartData.datasets.push({"label": "PM10", "data": dataOfChartPM});
+
+        this.boxAQI = result[result.length - 1].DataOfAqi;
+        this.boxPM25 = result[result.length - 1].PMTwoAvg;
+        this.boxPM10 = resultOfPMTen[resultOfPMTen.length - 1].PMTenAvg;
+        this.boxTemp = resultOfTemp[resultOfTemp.length - 1].TempAvg;
+        this.boxHum = resultOfHum[resultOfHum.length - 1].HumAvg;
+        
 
     },
     filters: { 
