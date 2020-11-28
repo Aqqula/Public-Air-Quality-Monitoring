@@ -79,30 +79,7 @@ export default {
             chartData: {
                 labels: [],
                 datasets: [
-                    // {
-                    //     label: 'Component 1',
-                    //     data: [10, 20, 30],
-                    //     backgroundColor: [
-                    //         'red',
-                    //         'rgba(205, 92, 92)',
-                    //         'rgba(255, 182, 193)',
-                    //         'rgba(216, 191, 216)',
-                    //         'rgba(176, 196, 222)',
-                    //         'rgba(144, 238, 144)'
-                    //     ],
-                    // },
-                    //  {
-                    //     label: 'Component 1',
-                    //     data: [10, 20, 30],
-                    //     backgroundColor: [
-                    //         'red',
-                    //         'rgba(205, 92, 92)',
-                    //         'rgba(255, 182, 193)',
-                    //         'rgba(216, 191, 216)',
-                    //         'rgba(176, 196, 222)',
-                    //         'rgba(144, 238, 144)'
-                    //     ],
-                    // }
+                    
                 ]
             }
         }
