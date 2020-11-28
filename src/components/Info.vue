@@ -26,30 +26,27 @@
             <br>
         </div>
         <br>
-        <div class="container-fluid InfoDet">
+        <div class="container-fluid p-5 InfoDet">
             <h1>Детальніша інформація</h1>
-            <div class="row PM25">
-                <div class="col-7">
+            <div class="row">
+                <div class="col-lg-7 order-1">
                     <p><span>PM2.5</span> - це тверді частинки розміром менше 2,5 мікрон. Їх діаметр в 30 разів менше, ніж діаметр людської волосини. До них відноситься суміш частинок пилу, золи, сажі, а також сульфатів і нітратів, які перебувають в підвішеному стані в повітрі. Саме ці речовини викликають помутніння повітря, типове для центрів найбільших мегаполісів.</p>
                 </div>
-                <div class="col-5">
+                <div class="col-lg-5 order-2">
                     <img src="../assets/img/ПМ25.jpg" alt="PM25" width="300" height="300">
                 </div>
-            </div>
-             <div class="row PM10">
-                <div class="col-5">
-                    <img src="../assets/img/ПМ10.jpg" alt="PM25" width="300" height="300">
-                </div>
-                <div class="col-7">
+                
+                <div class="col-lg-7 order-lg-4 order-3">
                     <p><span>PM10</span> - являють собою широко поширений забруднювач атмосферного повітря, що включає суміш твердих і рідких частинок, що знаходяться в повітрі в підвішеному стані.</p>
                 </div>
-            </div>
-            <div class="row TMandHum">
-                <div class="col-7">
-                    <p><span>Температура</span> - являють собою широко поширений забруднювач атмосферного повітря, що включає суміш твердих і рідких частинок, що знаходяться в повітрі в підвішеному стані.</p>
-                    <p><span>Влажность</span> - являють собою широко поширений забруднювач атмосферного повітря, що включає суміш твердих і рідких частинок, що знаходяться в повітрі в підвішеному стані.</p>
+                <div class="col-lg-5 order-lg-3 order-4">
+                    <img src="../assets/img/ПМ10.jpg" alt="PM25" width="300" height="300">
                 </div>
-                <div class="col-5">
+                <div class="col-lg-7 order-5">
+                    <p><span>Температура повітря</span> - показатель теплового состояния воздуха, регистрируемый измерительными приборами.<br><br>
+                    <span>Вологість повітря</span> можна характеризувати також влагосодержанием, або абсолютною вологістю - кількістю води, віднесених до одиниці маси сухої частини матеріалу.</p> 
+                </div>
+                <div class="col-lg-5 order-6">
                     <img src="../assets/img/температура и влажность.jpg" alt="PM25" width="300" height="300">
                 </div>
             </div>
@@ -323,12 +320,12 @@ span{
     display: flex;
     justify-content: center;
 }
-.PM25{
+.InfoDet div {
     font-family:'Century Gothic Regular';
 	font-size: 3vh;
     display: flex;
     justify-content: center;
     padding: 20px;
-    
+    text-align: justify;
 }
 </style>
