@@ -48,6 +48,7 @@
             </div>
             <br>
             <br>
+                <h1 class="centre">Про вимірювання якості повітря та забруднення:</h1>
                 <table class="table table-sm">
                     <thead>
                         <tr class="table-light">
@@ -442,6 +443,12 @@ a:hover{
 }
 .btn-success {
     width: 100%;
+}
+.centre{
+    font-family: 'Century Gothic Regular';
+	color: #008d46;
+    display: flex;
+    justify-content: center;
 }
 
 </style>
