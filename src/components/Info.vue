@@ -3,11 +3,11 @@
       <header>  <!--HEDER-->
         <div class="container-fluid">
             <div class="row no-gutters">
-                 <div class="col-8">
+                 <div class="col-9">
                    <img src="../assets/img/Logo.png" alt="Logo" width="280" height="39">
                 </div>          
-                <div class="col-4">
-                    <button type="button" class="btn btn-success"><router-link to="/saveecobot-info">Продивитися додаткову інформацію</router-link></button>
+                <div class="col-3">
+                    <button type="button" class="btn btn-success"><router-link to="/">На головну сторінку</router-link></button>
                 </div>
             </div>
         </div>
@@ -19,10 +19,40 @@
         </div>
         <div class="container-fluid">
             <br>
-            <div class="container-fluid graff">
+            <div class="container-fluid graff2">
+                <h1>Графік порівняння даних</h1>
                 <vue-chart type="line" :data="chartData"></vue-chart>
             </div>
             <br>
+        </div>
+        <br>
+        <div class="container-fluid InfoDet">
+            <h1>Детальніша інформація</h1>
+            <div class="row PM25">
+                <div class="col-7">
+                    <p><span>PM2.5</span> - це тверді частинки розміром менше 2,5 мікрон. Їх діаметр в 30 разів менше, ніж діаметр людської волосини. До них відноситься суміш частинок пилу, золи, сажі, а також сульфатів і нітратів, які перебувають в підвішеному стані в повітрі. Саме ці речовини викликають помутніння повітря, типове для центрів найбільших мегаполісів.</p>
+                </div>
+                <div class="col-5">
+                    <img src="../assets/img/ПМ25.jpg" alt="PM25" width="300" height="300">
+                </div>
+            </div>
+             <div class="row PM10">
+                <div class="col-5">
+                    <img src="../assets/img/ПМ10.jpg" alt="PM25" width="300" height="300">
+                </div>
+                <div class="col-7">
+                    <p><span>PM10</span> - являють собою широко поширений забруднювач атмосферного повітря, що включає суміш твердих і рідких частинок, що знаходяться в повітрі в підвішеному стані.</p>
+                </div>
+            </div>
+            <div class="row TMandHum">
+                <div class="col-7">
+                    <p><span>Температура</span> - являють собою широко поширений забруднювач атмосферного повітря, що включає суміш твердих і рідких частинок, що знаходяться в повітрі в підвішеному стані.</p>
+                    <p><span>Влажность</span> - являють собою широко поширений забруднювач атмосферного повітря, що включає суміш твердих і рідких частинок, що знаходяться в повітрі в підвішеному стані.</p>
+                </div>
+                <div class="col-5">
+                    <img src="../assets/img/температура и влажность.jpg" alt="PM25" width="300" height="300">
+                </div>
+            </div>
         </div>
         <br>
         <div class="FuterImg"> <!-- HEDERIMG -->
@@ -250,11 +280,23 @@ header{
 .graff{
     min-height: 40vh;
 	display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 	border-left: 2px ridge #228B22;
 	border-bottom: 2px ridge #228B22;
 	border-right: 2px ridge #228B22;
+    font-family: 'Century Gothic Regular';
+	color: #008d46;
+}
+.graff2{
+    min-height: 40vh;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Century Gothic Regular';
+	color: #008d46;
 }
 .adding{
 	display: flex;
@@ -268,5 +310,25 @@ header{
 select{
 	color: #228B22;
 	border-color: #228B22;
+}
+.btn-success {
+    width: 100%;
+}
+span{
+    color:#008d46;
+}
+.InfoDet h1{
+    color:#008d46;
+    font-family:'Century Gothic Regular';
+    display: flex;
+    justify-content: center;
+}
+.PM25{
+    font-family:'Century Gothic Regular';
+	font-size: 3vh;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    
 }
 </style>

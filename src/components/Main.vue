@@ -2,11 +2,11 @@
   <div>
       <header>  <!--HEDER-->
         <div class="container-fluid">
-            <div class="row InfoDet no-gutters">
-                <div class="col-8">
+            <div class="row no-gutters">
+                <div class="col-9 col-sm-6 col-lg-8">
                    <img src="../assets/img/Logo.png" alt="Logo" width="280" height="39">
                 </div>          
-                <div class="col-4">
+                <div class="col-3 col-sm-6 col-lg-4">
                     <button type="button" class="btn btn-success"><router-link to="/saveecobot-info">Продивитися додаткову інформацію</router-link></button>
                 </div>
             </div>
@@ -42,6 +42,8 @@
             </div>
             <br>
             <div class="container-fluid graff">
+                <h1>Графік аналізу даних AQI</h1>
+                <br>
                 <vue-chart type="horizontalBar" :data="chartData"></vue-chart>
             </div>
             <br>
@@ -438,10 +440,8 @@ a{
 a:hover{
     color:#006400;
 }
-.InfoDet{
-    display: flex;
-	justify-content: space-between;
-    border: 1px solid black;
+.btn-success {
+    width: 100%;
 }
 
 </style>
