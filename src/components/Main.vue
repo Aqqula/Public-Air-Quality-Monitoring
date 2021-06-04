@@ -17,7 +17,9 @@
         <div class="HederImg"> <!-- HEDERIMG -->
             <img src="../assets/img/HI.png" alt="img/hederImg.png">
         </div>
-        <div class="container-fluid">
+        <div class="container-fluid ">
+            <h1 class="centre">Актуальні дані на сьогоднішній день</h1>
+            <br>
             <div class="row InfoBox mx-auto"> <!-- InfoBoxs -->
                 <div class="col-md-12 col-lg-2 BOX ">
                     <h3>{{boxAQI | roundNum}}</h3>
@@ -299,6 +301,11 @@ export default {
 @font-face {
 	font-family: 'Century Gothic Regular';
 	src: url('../assets/fonts/CenturyGothic.ttf') format('truetype');
+}
+h1{
+    font-family: 'Century Gothic Regular';
+	font-size: 5.4vh;
+	color: #008d46;
 }
 .graff span{
 	font-family: 'Century Gothic Regular';
