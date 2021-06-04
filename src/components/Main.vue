@@ -272,13 +272,7 @@ export default {
         });
         this.chartData.labels = labelsOfChart;
         this.chartData.datasets.push({"label": "AQI", "data": dataOfChart, "backgroundColor": colorsOfChart});
- 
-        //bar chart PM10
-        // let dataOfChartPM = [];
-        // resultOfPMTen.forEach(el => {
-        //     dataOfChartPM.push(el.PMTenAvg);
-        // });
-        // this.chartData.datasets.push({"label": "PM10", "data": dataOfChartPM});
+
 
         this.boxAQI = result[result.length - 1].DataOfAqi;
         this.boxPM25 = result[result.length - 1].PMTwoAvg;
