@@ -145,7 +145,7 @@ export default {
     },
     mounted() {
         this.arrayOfAqi = AQI;
-        console.log(this.arrayOfAqi);
+        //console.log(this.arrayOfAqi);
 
         // PM10
         this.arrayOfPMTen = this.arrayOfAqi.filter((el) => {
@@ -173,9 +173,11 @@ export default {
         return {
             date: key, 
             PMTwoAvg : result[key].reduce((a, b) => a + (parseInt(b.data) || 0), 0)/result[key].length,
+            PMTwoMax :  result[key].reduce((a, b) => ( a === undefined || parseInt(b.data) > a ) ? parseInt(b.data) : a).data,
+            PMTwoMin :  result[key].reduce((a, b) => ( a === undefined || parseInt(b.data) < a ) ? parseInt(b.data) : a).data,
            }
         });
-        console.log(result);
+        //console.log(result);
 
         //Перебыраємо масив з ПМ10 за датою
         var resultOfPMTen = this.arrayOfPMTen.reduce(function(h, obj) {
@@ -188,7 +190,7 @@ export default {
             PMTenAvg : resultOfPMTen[key].reduce((a, b) => a + (parseInt(b.data) || 0), 0)/resultOfPMTen[key].length,
            }
         });
-        console.log(resultOfPMTen);
+        //console.log(resultOfPMTen);
 
         //Перебыраємо масив з Temperature за датою
         var resultOfTemp = this.arrayOfTemp.reduce(function(h, obj) {
@@ -201,7 +203,7 @@ export default {
             TempAvg : resultOfTemp[key].reduce((a, b) => a + (parseInt(b.data) || 0), 0)/resultOfTemp[key].length,
            }
         });
-        console.log(resultOfTemp);
+        //console.log(resultOfTemp);
 
         //Перебыраємо масив з Humidity за датою
         var resultOfHum = this.arrayOfHum.reduce(function(h, obj) {
@@ -214,12 +216,12 @@ export default {
             HumAvg : resultOfHum[key].reduce((a, b) => a + (parseInt(b.data) || 0), 0)/resultOfHum[key].length,
            }
         });
-        console.log(resultOfHum);
+        //console.log(resultOfHum);
 
         result.forEach((el) => {
-            this.calculateAQI(el.PMTwoAvg, el.DataOfAqi);
-            //this.calculateAQI(el.PMTwoMax, el.DataOfAqiMax);
-            //this.calculateAQI(el.PMTwoMin, el.DataOfAqiMin);
+            el.DataOfAqiAvg = this.calculateAQI(el.PMTwoAvg);
+            //el.DataOfAqiMin = this.calculateAQI(el.PMTwoMin);
+            //el.DataOfAqiMax = this.calculateAQI(el.PMTwoMax);
         });
 
         this.arrayOfAqi = result;
@@ -230,20 +232,20 @@ export default {
         let labelsOfChart = [];
         let color = '';
         result.forEach(el => {
-            dataOfChart.push(el.DataOfAqi);
-            if (el.DataOfAqi < 50) {
+            dataOfChart.push(el.DataOfAqiAvg);
+            if (el.DataOfAqiAvg < 50) {
                 color = '#66aa00e0'; 
             } 
-            else if (el.DataOfAqi < 100) {
+            else if (el.DataOfAqiAvg < 100) {
                 color = 'rgba(255, 247, 0, 0.59)'; 
             }
-            else if (el.DataOfAqi < 150) {
+            else if (el.DataOfAqiAvg < 150) {
                 color = 'rgba(255, 166, 0, 0.611)'; 
             }
-            else if (el.DataOfAqi < 200) {
+            else if (el.DataOfAqiAvg < 200) {
                 color = '#ff00008e'; 
             }
-            else if (el.DataOfAqi < 300) {
+            else if (el.DataOfAqiAvg < 300) {
                 color = 'rgba(128, 0, 128, 0.761)'; 
             }
             else {
@@ -256,7 +258,9 @@ export default {
         this.chartData.datasets.push({"label": "AQI", "data": dataOfChart, "backgroundColor": colorsOfChart});
 
 
-        this.boxAQI = result[result.length - 1].DataOfAqi;
+
+        //Верхние боксы
+        this.boxAQI = result[result.length - 1].DataOfAqiAvg;
         this.boxPM25 = result[result.length - 1].PMTwoAvg;
         this.boxPM10 = resultOfPMTen[resultOfPMTen.length - 1].PMTenAvg;
         this.boxTemp = resultOfTemp[resultOfTemp.length - 1].TempAvg;
@@ -266,29 +270,21 @@ export default {
     },
     methods: {
         //формула для АКЮ
-        calculateAQI(data, field) {
+        calculateAQI(data) {
             if ((data > 0) && (data < 12.0))
-                field = (data-0)/(12.0-0)*(50-0)+0;
-
+                return (data-0)/(12.0-0)*(50-0)+0;
             else if ((data > 12.1) && (data < 35.4))
-                field = (data-12.1)/(35.4-12.1)*(100-51)+51;
-
+                return (data-12.1)/(35.4-12.1)*(100-51)+51;
             else if ((data > 35.5) && (data < 55.4))
-                field = (data-35.5)/(55.4-35.5)*(150-101)+101;
-            
+                return (data-35.5)/(55.4-35.5)*(150-101)+101;
             else if ((data > 55.5) && (data < 150.4))
-                field = (data-55.5)/(150.4-55.5)*(200-151)+151;
-
+                return (data-55.5)/(150.4-55.5)*(200-151)+151;
             else if ((data > 150.5) && (data < 250.4))
-                field = (data-150.5)/(250.4-150.5)*(300-201)+201;
-
+                return (data-150.5)/(250.4-150.5)*(300-201)+201;
             else if ((data > 250.5) && (data < 350.4))
-                field = (data-250.5)/(350.4-250.5)*(400-301)+301;
-
+                return (data-250.5)/(350.4-250.5)*(400-301)+301;
             else if ((data > 350.5) && (data < 500.4))
-                field = (data-350.5)/(500.4-350.5)*(500-401)+401;
-                
-                console.log("TYT" + field);
+                return (data-350.5)/(500.4-350.5)*(500-401)+401;     
         }
     },
     filters: { 

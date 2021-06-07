@@ -119,8 +119,7 @@ export default {
             PMTwoAvg : result[key].reduce((a, b) => a + (parseInt(b.data) || 0), 0)/result[key].length,
            }
         });
-        console.log(result);
-
+        
         //Перебыраємо масив з ПМ10 за датою
         var resultOfPMTen = this.arrayOfPMTen.reduce(function(h, obj) {
         h[obj.date.slice(0, 7)] = (h[obj.date.slice(0, 7)] || []).concat(obj);
@@ -132,7 +131,6 @@ export default {
             PMTenAvg : resultOfPMTen[key].reduce((a, b) => a + (parseInt(b.data) || 0), 0)/resultOfPMTen[key].length,
            }
         });
-        console.log(resultOfPMTen);
 
         //Перебыраємо масив з Temperature за датою
         var resultOfTemp = this.arrayOfTemp.reduce(function(h, obj) {
@@ -145,8 +143,7 @@ export default {
             TempAvg : resultOfTemp[key].reduce((a, b) => a + (parseInt(b.data) || 0), 0)/resultOfTemp[key].length,
            }
         });
-        console.log(resultOfTemp);
-
+        
         //Перебыраємо масив з Humidity за датою
         var resultOfHum = this.arrayOfHum.reduce(function(h, obj) {
         h[obj.date.slice(0, 7)] = (h[obj.date.slice(0, 7)] || []).concat(obj);
@@ -158,8 +155,7 @@ export default {
             HumAvg : resultOfHum[key].reduce((a, b) => a + (parseInt(b.data) || 0), 0)/resultOfHum[key].length,
            }
         });
-        console.log(resultOfHum);
-    
+        
         //bar chart PM2.5
         let dataOfChartPM25 = [];
         let labelsOfChart = [];
