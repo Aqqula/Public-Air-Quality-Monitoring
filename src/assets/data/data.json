@@ -128,7 +128,7 @@
 {
 "name": "PM2.5",
 "measure": "ug/m3",
-"data": "4.17",
+"data": "10.17",
 "date": "3/24/21 0:04"
 },
 {
@@ -188,7 +188,7 @@
 {
 "name": "PM2.5",
 "measure": "ug/m3",
-"data": "3.92",
+"data": "15.92",
 "date": "3/24/21 0:06"
 },
 {
@@ -248,7 +248,7 @@
 {
 "name": "PM2.5",
 "measure": "ug/m3",
-"data": "4.53",
+"data": "20.53",
 "date": "3/24/21 0:08"
 },
 {
@@ -308,7 +308,7 @@
 {
 "name": "PM2.5",
 "measure": "ug/m3",
-"data": "500.3",
+"data": "390.3",
 "date": "3/27/21 0:10"
 },
 {
@@ -758,7 +758,7 @@
 {
 "name": "PM2.5",
 "measure": "ug/m3",
-"data": "4.42",
+"data": "5.42",
 "date": "4/3/21 0:26"
 },
 {
@@ -788,7 +788,7 @@
 {
 "name": "PM2.5",
 "measure": "ug/m3",
-"data": "4.03",
+"data": "2.03",
 "date": "4/3/21 0:27"
 },
 {
@@ -848,7 +848,7 @@
 {
 "name": "PM2.5",
 "measure": "ug/m3",
-"data": "5.03",
+"data": "8.03",
 "date": "4/3/21 0:29"
 },
 {
@@ -21453,121 +21453,121 @@
 "name": "PM10",
 "measure": "ug/m3",
 "data": "5.75",
-"date": "3/22/21 12:30"
+"date": "3/27/21 12:30"
 },
 {
 "name": "PM2.5",
 "measure": "ug/m3",
 "data": "1.87",
-"date": "3/22/21 12:30"
+"date": "3/27/21 12:30"
 },
 {
 "name": "Temperature",
 "measure": "C",
 "data": "16.9",
-"date": "3/22/21 12:30"
+"date": "3/27/21 12:30"
 },
 {
 "name": "Humidity",
 "measure": "%",
 "data": "75",
-"date": "3/22/21 12:30"
+"date": "3/27/21 12:30"
 },
 {
 "name": "WiFiSignal",
 "measure": "dB",
 "data": "-71",
-"date": "3/22/21 12:30"
+"date": "3/27/21 12:30"
 },
 {
 "name": "PM10",
 "measure": "ug/m3",
 "data": "9.25",
-"date": "3/22/21 12:31"
+"date": "3/27/21 12:31"
 },
 {
 "name": "PM2.5",
 "measure": "ug/m3",
 "data": "2.05",
-"date": "3/22/21 12:31"
+"date": "3/27/21 12:31"
 },
 {
 "name": "Temperature",
 "measure": "C",
 "data": "16.9",
-"date": "3/22/21 12:31"
+"date": "3/27/21 12:31"
 },
 {
 "name": "Humidity",
 "measure": "%",
 "data": "75.3",
-"date": "3/22/21 12:31"
+"date": "3/27/21 12:31"
 },
 {
 "name": "WiFiSignal",
 "measure": "dB",
 "data": "-70",
-"date": "3/22/21 12:31"
+"date": "3/27/21 12:31"
 },
 {
 "name": "PM10",
 "measure": "ug/m3",
 "data": "4.28",
-"date": "3/22/21 12:32"
+"date": "3/27/21 12:32"
 },
 {
 "name": "PM2.5",
 "measure": "ug/m3",
-"data": "2",
-"date": "3/22/21 12:32"
+"data": "35",
+"date": "3/27/21 12:32"
 },
 {
 "name": "Temperature",
 "measure": "C",
 "data": "16.8",
-"date": "3/22/21 12:32"
+"date": "3/27/21 12:32"
 },
 {
 "name": "Humidity",
 "measure": "%",
 "data": "75.1",
-"date": "3/22/21 12:32"
+"date": "3/27/21 12:32"
 },
 {
 "name": "WiFiSignal",
 "measure": "dB",
 "data": "-70",
-"date": "3/22/21 12:32"
+"date": "3/27/21 12:32"
 },
 {
 "name": "PM10",
 "measure": "ug/m3",
 "data": "7.72",
-"date": "3/22/21 12:33"
+"date": "3/27/21 12:33"
 },
 {
 "name": "PM2.5",
 "measure": "ug/m3",
 "data": "2.25",
-"date": "3/22/21 12:33"
+"date": "3/27/21 12:33"
 },
 {
 "name": "Temperature",
 "measure": "C",
-"data": "16.8",
-"date": "3/22/21 12:33"
+"data": "32.8",
+"date": "3/27/21 12:33"
 },
 {
 "name": "Humidity",
 "measure": "%",
 "data": "75.8",
-"date": "3/22/21 12:33"
+"date": "3/27/21 12:33"
 },
 {
 "name": "WiFiSignal",
 "measure": "dB",
 "data": "-72",
-"date": "3/22/21 12:33"
+"date": "3/27/21 12:33"
 },
 {
 "name": "PM10",

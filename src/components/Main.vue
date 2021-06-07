@@ -174,7 +174,7 @@ export default {
             date: key, 
             PMTwoAvg : result[key].reduce((a, b) => a + (parseInt(b.data) || 0), 0)/result[key].length,
             PMTwoMax :  result[key].reduce((a, b) => ( a === undefined || parseInt(b.data) > a ) ? parseInt(b.data) : a).data,
-            PMTwoMin :  result[key].reduce((a, b) => ( a === undefined || parseInt(b.data) < a ) ? parseInt(b.data) : a).data,
+            PMTwoMin :  result[key].reduce((a, b) => ( a === undefined || parseInt(a.data) < b ) ? parseInt(a.data) : b).data,
            }
         });
         //console.log(result);
@@ -283,7 +283,7 @@ export default {
             }
             colorsOfAqiMax.push(color)
         });
-        this.chartData.datasets.push({"label": "Максимальне значення AQI", "data": dataOfAqiMax, "backgroundColor": colorsOfAqiMax});
+        this.chartData.datasets.push({"label": "Максимальне значення AQI", "data": dataOfAqiMax, "backgroundColor": colorsOfAqiMax, hidden: true});
 
         //bar chart AQI(min)
         let dataOfAqiMin = [];
@@ -302,7 +302,7 @@ export default {
             else if (el.DataOfAqiMin < 200) {
                 color = '#ff00008e'; 
             }
-            else if (el.DataOfAqiMin < 500) {
+            else if (el.DataOfAqiMin < 300) {
                 color = 'rgba(128, 0, 128, 0.761)'; 
             }
             else {
@@ -310,7 +310,7 @@ export default {
             }
             colorsOfAqiMin.push(color)
         });
-        this.chartData.datasets.push({"label": "Мінімальне значення AQI", "data": dataOfAqiMin, "backgroundColor": colorsOfAqiMin});
+        this.chartData.datasets.push({"label": "Мінімальне значення AQI", "data": dataOfAqiMin, "backgroundColor": colorsOfAqiMin, hidden: true});
 
         //Верхние боксы
         this.boxAQI = result[result.length - 1].DataOfAqiAvg;
