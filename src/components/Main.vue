@@ -216,32 +216,14 @@ export default {
         });
         console.log(resultOfHum);
 
-
-        //формула для АКЮ
         result.forEach((el) => {
-            if ((el.PMTwoAvg > 0) && (el.PMTwoAvg < 12.0))
-                el.DataOfAqi = (el.PMTwoAvg-0)/(12.0-0)*(50-0)+0;
-
-            else if ((el.PMTwoAvg > 12.1) && (el.PMTwoAvg < 35.4))
-                el.DataOfAqi = (el.PMTwoAvg-12.1)/(35.4-12.1)*(100-51)+51;
-
-            else if ((el.PMTwoAvg > 35.5) && (el.PMTwoAvg < 55.4))
-                el.DataOfAqi = (el.PMTwoAvg-35.5)/(55.4-35.5)*(150-101)+101;
-            
-            else if ((el.PMTwoAvg > 55.5) && (el.PMTwoAvg < 150.4))
-                el.DataOfAqi = (el.PMTwoAvg-55.5)/(150.4-55.5)*(200-151)+151;
-
-            else if ((el.PMTwoAvg > 150.5) && (el.PMTwoAvg < 250.4))
-                el.DataOfAqi = (el.PMTwoAvg-150.5)/(250.4-150.5)*(300-201)+201;
-
-            else if ((el.PMTwoAvg > 250.5) && (el.PMTwoAvg < 350.4))
-                el.DataOfAqi = (el.PMTwoAvg-250.5)/(350.4-250.5)*(400-301)+301;
-
-            else if ((el.PMTwoAvg > 350.5) && (el.PMTwoAvg < 500.4))
-                el.DataOfAqi = (el.PMTwoAvg-350.5)/(500.4-350.5)*(500-401)+401;       
+            this.calculateAQI(el.PMTwoAvg, el.DataOfAqi);
+            //this.calculateAQI(el.PMTwoMax, el.DataOfAqiMax);
+            //this.calculateAQI(el.PMTwoMin, el.DataOfAqiMin);
         });
+
         this.arrayOfAqi = result;
-    
+
         //bar chart AQI
         let dataOfChart = [];
         let colorsOfChart = [];
@@ -281,6 +263,33 @@ export default {
         this.boxHum = resultOfHum[resultOfHum.length - 1].HumAvg;
         
 
+    },
+    methods: {
+        //формула для АКЮ
+        calculateAQI(data, field) {
+            if ((data > 0) && (data < 12.0))
+                field = (data-0)/(12.0-0)*(50-0)+0;
+
+            else if ((data > 12.1) && (data < 35.4))
+                field = (data-12.1)/(35.4-12.1)*(100-51)+51;
+
+            else if ((data > 35.5) && (data < 55.4))
+                field = (data-35.5)/(55.4-35.5)*(150-101)+101;
+            
+            else if ((data > 55.5) && (data < 150.4))
+                field = (data-55.5)/(150.4-55.5)*(200-151)+151;
+
+            else if ((data > 150.5) && (data < 250.4))
+                field = (data-150.5)/(250.4-150.5)*(300-201)+201;
+
+            else if ((data > 250.5) && (data < 350.4))
+                field = (data-250.5)/(350.4-250.5)*(400-301)+301;
+
+            else if ((data > 350.5) && (data < 500.4))
+                field = (data-350.5)/(500.4-350.5)*(500-401)+401;
+                
+                console.log("TYT" + field);
+        }
     },
     filters: { 
         roundNum:  function(value) { 
