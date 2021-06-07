@@ -157,8 +157,9 @@ export default {
         });
         
         //bar chart PM2.5
-        let dataOfChartPM25 = [];
         let labelsOfChart = [];
+        
+        let dataOfChartPM25 = [];    
         result.forEach(el => {
             dataOfChartPM25.push(el.PMTwoAvg);
             labelsOfChart.push(el.date);

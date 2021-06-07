@@ -220,19 +220,20 @@ export default {
 
         result.forEach((el) => {
             el.DataOfAqiAvg = this.calculateAQI(el.PMTwoAvg);
-            //el.DataOfAqiMin = this.calculateAQI(el.PMTwoMin);
-            //el.DataOfAqiMax = this.calculateAQI(el.PMTwoMax);
+            el.DataOfAqiMin = this.calculateAQI(el.PMTwoMin);
+            el.DataOfAqiMax = this.calculateAQI(el.PMTwoMax);
         });
 
-        this.arrayOfAqi = result;
+        // this.arrayOfAqi = result;
 
-        //bar chart AQI
-        let dataOfChart = [];
-        let colorsOfChart = [];
+
         let labelsOfChart = [];
         let color = '';
+        //bar chart AQI(avg)
+        let dataOfAqiAvg = [];
+        let colorsOfAqiAvg = [];
         result.forEach(el => {
-            dataOfChart.push(el.DataOfAqiAvg);
+            dataOfAqiAvg.push(el.DataOfAqiAvg);
             if (el.DataOfAqiAvg < 50) {
                 color = '#66aa00e0'; 
             } 
@@ -251,13 +252,65 @@ export default {
             else {
                 color = 'green'; 
             }
-            colorsOfChart.push(color)
+            colorsOfAqiAvg.push(color)
             labelsOfChart.push(el.date);
         });
         this.chartData.labels = labelsOfChart;
-        this.chartData.datasets.push({"label": "AQI", "data": dataOfChart, "backgroundColor": colorsOfChart});
+        this.chartData.datasets.push({"label": "Середне значення AQI", "data": dataOfAqiAvg, "backgroundColor": colorsOfAqiAvg});
 
+        //bar chart AQI(max)
+        let dataOfAqiMax = [];
+        let colorsOfAqiMax = [];
+        result.forEach(el => {
+            dataOfAqiMax.push(el.DataOfAqiMax);
+            if (el.DataOfAqiMax < 50) {
+                color = '#66aa00e0'; 
+            } 
+            else if (el.DataOfAqiMax < 100) {
+                color = 'rgba(255, 247, 0, 0.59)'; 
+            }
+            else if (el.DataOfAqiMax < 150) {
+                color = 'rgba(255, 166, 0, 0.611)'; 
+            }
+            else if (el.DataOfAqiMax < 200) {
+                color = '#ff00008e'; 
+            }
+            else if (el.DataOfAqiMax < 500) {
+                color = 'rgba(128, 0, 128, 0.761)'; 
+            }
+            else {
+                color = 'green'; 
+            }
+            colorsOfAqiMax.push(color)
+        });
+        this.chartData.datasets.push({"label": "Максимальне значення AQI", "data": dataOfAqiMax, "backgroundColor": colorsOfAqiMax});
 
+        //bar chart AQI(min)
+        let dataOfAqiMin = [];
+        let colorsOfAqiMin = [];
+        result.forEach(el => {
+            dataOfAqiMin.push(el.DataOfAqiMin);
+            if (el.DataOfAqiMin < 50) {
+                color = '#66aa00e0'; 
+            } 
+            else if (el.DataOfAqiMin < 100) {
+                color = 'rgba(255, 247, 0, 0.59)'; 
+            }
+            else if (el.DataOfAqiMin < 150) {
+                color = 'rgba(255, 166, 0, 0.611)'; 
+            }
+            else if (el.DataOfAqiMin < 200) {
+                color = '#ff00008e'; 
+            }
+            else if (el.DataOfAqiMin < 500) {
+                color = 'rgba(128, 0, 128, 0.761)'; 
+            }
+            else {
+                color = 'green'; 
+            }
+            colorsOfAqiMin.push(color)
+        });
+        this.chartData.datasets.push({"label": "Мінімальне значення AQI", "data": dataOfAqiMin, "backgroundColor": colorsOfAqiMin});
 
         //Верхние боксы
         this.boxAQI = result[result.length - 1].DataOfAqiAvg;
