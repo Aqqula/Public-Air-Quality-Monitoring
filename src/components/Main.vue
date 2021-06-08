@@ -173,11 +173,11 @@ export default {
         return {
             date: key, 
             PMTwoAvg : result[key].reduce((a, b) => a + (parseInt(b.data) || 0), 0)/result[key].length,
-            PMTwoMax :  result[key].reduce((a, b) => ( a === undefined || parseInt(b.data) > a ) ? parseInt(b.data) : a).data,
-            PMTwoMin :  result[key].reduce((a, b) => ( a === undefined || parseInt(a.data) < b ) ? parseInt(a.data) : b).data,
+            PMTwoMax : result[key].reduce((a, b) => (!a)? parseInt(b.data) : Math.max(a, parseInt(b.data))),
+            PMTwoMin : result[key].reduce((a, b) => (!a)? parseInt(b.data) : Math.min(a, parseInt(b.data))),
            }
         });
-        //console.log(result);
+        console.log(result);
 
         //Перебыраємо масив з ПМ10 за датою
         var resultOfPMTen = this.arrayOfPMTen.reduce(function(h, obj) {
