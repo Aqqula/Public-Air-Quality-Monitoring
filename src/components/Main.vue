@@ -34,11 +34,11 @@
                     <p>Значення PM2.5</p>
                 </div>
                 <div class="col-md-6 col-lg-2 BOX ">
-                    <h3>{{boxTemp | roundNum}} °C</h3>
+                    <h3>27°C</h3>
                     <p>Температура повітря</p>
                 </div>
                 <div class="col-md-6 col-lg-2 BOX ">
-                    <h3>{{boxHum | roundNum}} %</h3>
+                    <h3>65 %</h3>
                     <p>Вологість повітря</p>
                 </div>
             </div>
